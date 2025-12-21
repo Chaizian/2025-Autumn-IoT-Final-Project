@@ -4,6 +4,7 @@ from backend.service.analysis_service import AnalysisService
 from backend.service.history_service import HistoryService
 from backend.service.risk_service import RiskService
 from backend.service.predict_service import PredictService
+from backend.service.llm_service import LLMService
 
 sensor_bp = Blueprint("sensor", __name__)
 
@@ -16,6 +17,16 @@ def environment_status():
 @sensor_bp.route("/api/environment/risk")
 def environment_risk():
     return jsonify(RiskService.assess_environment_risk())
+
+@sensor_bp.route("/api/llm/advice")
+def get_llm_advice():
+    status = AnalysisService.get_environment_status()
+    risk = RiskService.assess_environment_risk()
+    # Get a simple prediction for the prompt
+    prediction = PredictService.predict_environment(window=20, horizon=5)
+    
+    advice = LLMService.get_advice(status, risk, prediction)
+    return jsonify({"advice": advice})
 
 @sensor_bp.route("/api/history", methods=["GET"])
 def get_history():
