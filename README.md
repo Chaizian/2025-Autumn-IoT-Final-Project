@@ -54,7 +54,7 @@
 在项目根目录下运行：
 
 ```bash
-# 请替换为你的 mosquitto 安装路径
+# 请替换为你的 mosquitto 安装路径(如D:\mosquitto\mosquitto.exe)
 你的 mosquitto 安装路径 -c mqtt_broker\mosquitto.conf -v
 ```
 
@@ -62,17 +62,8 @@
 
 需要进入 `mqtt_consumer` 目录，并将项目根目录加入 `PYTHONPATH` 以便正确导入模块。
 
-**Windows CMD:**
-```cmd
+```bash
 cd mqtt_consumer
-set PYTHONPATH=..
-python consumer.py
-```
-
-**Windows PowerShell:**
-```powershell
-cd mqtt_consumer
-$env:PYTHONPATH=".."
 python consumer.py
 ```
 
@@ -80,17 +71,8 @@ python consumer.py
 
 需要进入 `backend` 目录，并将项目根目录加入 `PYTHONPATH`。
 
-**Windows CMD:**
-```cmd
+```bash
 cd backend
-set PYTHONPATH=..
-python app.py
-```
-
-**Windows PowerShell:**
-```powershell
-cd backend
-$env:PYTHONPATH=".."
 python app.py
 ```
 
