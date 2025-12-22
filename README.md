@@ -60,8 +60,6 @@
 
 ### 3. 启动数据消费者 (Terminal 2)
 
-需要进入 `mqtt_consumer` 目录，并将项目根目录加入 `PYTHONPATH` 以便正确导入模块。
-
 ```bash
 cd mqtt_consumer
 python consumer.py
@@ -69,7 +67,6 @@ python consumer.py
 
 ### 4. 启动后端 API (Terminal 3)
 
-需要进入 `backend` 目录，并将项目根目录加入 `PYTHONPATH`。
 
 ```bash
 cd backend
@@ -78,7 +75,6 @@ python app.py
 
 ### 5. 启动数据发布器 (Terminal 4)
 
-需要进入 `publisher` 目录（以便找到 `../data` 数据文件）。
 
 ```bash
 cd publisher
